@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Wikipedia Viewer</title>
+	<link rel="stylesheet" href="../../Contents/bootstrap.css">
+	<link rel="stylesheet" href="../../Contents/font-awesome-4.6.3/css/font-awesome.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="../../Contents/angular.js"></script>
+	<script src="controller.js"></script>
+</head>
+
+<body ng-app="WikipediaApp">
+	<div ng-controller="mainController">
+		<div class="jumbotron">
+			<div class="container-fluid text-center main">
+				<h1>Wikipedia Viewer</h1>
+				<br>
+				<input type="text" placeholder="Search anything on Wikipedia..." size="100%" id="searchBox">
+				<span class='fa fa-search fa-lg'></span>
+			</div>
+		</div>
+		<div class="container text-center content">
+			<div class="well" ng-repeat="entry in entries">
+				<h3>{{entry[1][0]}}</h3>
+				<hr>
+				<p>{{entry[2]}}</p>
+				<a href="#">{{entry[3]}}</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
