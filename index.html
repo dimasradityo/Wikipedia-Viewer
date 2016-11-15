@@ -6,6 +6,7 @@
 	<title>Wikipedia Viewer</title>
 	<link rel="stylesheet" href="../../Contents/bootstrap.css">
 	<link rel="stylesheet" href="../../Contents/font-awesome-4.6.3/css/font-awesome.css">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran|Varela+Round" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 	<script src="../../Contents/angular.js"></script>
 	<script src="controller.js"></script>
@@ -17,16 +18,19 @@
 			<div class="container-fluid text-center main">
 				<h1>Wikipedia Viewer</h1>
 				<br>
-				<input type="text" placeholder="Search anything on Wikipedia..." size="100%" id="searchBox">
-				<span class='fa fa-search fa-lg'></span>
+				<input type="text" placeholder="Search anything on Wikipedia..." size="100%" id="searchBox" ng-model="search">
+				<button class="btn-default btn-sm btn" ng-click="display()"><span class='fa fa-search fa-lg'></span></button>
+				<br>
+				<h3>OR</h3>
+				<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><button class="btn btn-default btn-lg">Feeling Random?</button></a>
 			</div>
 		</div>
 		<div class="container text-center content">
-			<div class="well" ng-repeat="entry in entries">
-				<h3>{{entry[1][0]}}</h3>
-				<hr>
-				<p>{{entry[2]}}</p>
-				<a href="#">{{entry[3]}}</a>
+			<div class="well" ng-repeat="data in repeatData">
+				<h2>{{data.name}}</h2>
+				<hr>				
+				<p>{{data.desc}}</p>				
+				<a href={{data.link}} target="_blank">Full Wikipedia Page</a>
 			</div>
 		</div>
 	</div>
